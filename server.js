@@ -3428,7 +3428,7 @@ const sockets = (() => {
                        // body.invuln = true; // Make it safe
                     player.body = body;*/
                           if (socket.key === 'ArrasianBT') {
-                          body.define(Class.testbed);  
+                          body.define(Class.testbedpet);  
                                             body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
                         body.addController(new io_listenToPlayer(body, player)); // Make it listen
