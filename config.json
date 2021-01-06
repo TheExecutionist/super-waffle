@@ -18,14 +18,14 @@
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
     [ "water","waterrock", "water", "water", "waterrock" , "water", "water","waterrock", "water"],
-    [ "waterrock","norm", "water", "water", "water" , "water", "water","water", "waterrock"],
+    [ "waterrock","water", "water", "water", "water" , "water", "water","water", "waterrock"],
     [ "water","water", "water", "water", "dom1" , "water", "water","water", "water"],
     [ "water","water", "water", "nest", "nest" , "nest", "water","water", "water"],
     [ "waterrock", "water","dom1", "nest", "waterrock" , "nest", "dom1", "water","waterrock"],
     [ "water","water", "water", "nest", "nest" , "nest", "water","water", "water"],
     [ "water","water", "water", "water", "dom1" , "water", "water","water", "water"],
     [ "waterrock", "water","water", "water", "water",  "water", "water","water", "waterrock"],
-    [ "water", "waterrock", "water", "water","waterrock", "water", "water", "waterrock", "norm"]
+    [ "water", "waterrock", "water", "water","waterrock", "water", "water", "waterrock", "water"]
   ],
   "X_GRID": 9,
   "Y_GRID": 9,
