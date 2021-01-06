@@ -89,6 +89,8 @@ const room = {
 room.findType('dom1'); 
 room.findType('maze'); 
 room.findType('edge');
+room.findType('water');
+room.findType('waterrock')
 room.nestFoodAmount = 1.5 * Math.sqrt(room.nest.length) / room.xgrid / room.ygrid;
     room.random = () => {
         return {
@@ -4646,6 +4648,8 @@ var maintainloop = (() => {
         for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('rock', Class.babyObstacle); }
       for (let i=Math.ceil(rockcount * 0.8); i; i--) { count++; placeRoid('dom1', Class.obstacle2); }
         for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('dom1', Class.babyObstacle2); }
+      for (let i=Math.ceil(rockcount * 0.8); i; i--) { count++; placeRoid('waterrock', Class.obstacle); }
+        for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('waterrock', Class.babyObstacle);
       //for (let i=Math.ceil(count); i; i--) { count++; placeRoid('maze', Class.maze); }
         util.log('Placing ' + count + ' obstacles!');
     }
