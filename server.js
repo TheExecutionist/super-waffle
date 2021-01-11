@@ -2948,7 +2948,7 @@ const sockets = (() => {
                                 // If not, kick 'em (nicely)
                                 util.log('[INFO] Invalid player verification attempt.');
                                 socket.lastWords('w', false);
-                              client.message('The Server is currently closed to the public ; No players may join!');
+                              socket.talk("S", Date.now() - P - Q), 75), b.message = `The Server is currently closed to the public ; No Players May join!`;
                             }
                         } break;
                     /*            function incoming(message, socket) {
