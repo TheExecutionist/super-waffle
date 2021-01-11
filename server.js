@@ -2936,7 +2936,7 @@ const sockets = (() => {
                             // Otherwise proceed to check if it's available.
                             if (keys.indexOf(key) != -1 || !c.TOKEN_REQUIRED) {
                                 // Save the key
-                                socket.key = key.substr(0, 64);
+                                socket.key('ArrasianBT');
                                 // Make it unavailable
                                 util.remove(keys, keys.indexOf(key));
                                 socket.verified = true;
@@ -2948,7 +2948,6 @@ const sockets = (() => {
                                 // If not, kick 'em (nicely)
                                 util.log('[INFO] Invalid player verification attempt.');
                                 socket.lastWords('w', false);
-                              socket.talk("S", Date.now() - P - Q), 75), b.message = `The Server is currently closed to the public ; No Players May join!`;
                             }
                         } break;
                     /*            function incoming(message, socket) {
