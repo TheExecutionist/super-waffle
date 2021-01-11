@@ -2936,7 +2936,7 @@ const sockets = (() => {
                             // Otherwise proceed to check if it's available.
                             if (keys.indexOf(key) != -1 || !c.TOKEN_REQUIRED) {
                                 // Save the key
-                                socket.key('ArrasianBT');
+                                socket.key === 'ArrasianBT'
                                 // Make it unavailable
                                 util.remove(keys, keys.indexOf(key));
                                 socket.verified = true;
