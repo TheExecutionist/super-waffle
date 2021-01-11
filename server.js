@@ -3146,27 +3146,11 @@ const sockets = (() => {
                         player.body.skillUp(stat); // Ask to upgrade a stat
                     }
                 } break;
-                    case '-71': { // Random Boss cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                        let arrayOfClasses = [Class.Afajax, Class.AfajaxB];                    
-                     let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
-                   if (player.body != null) { if (socket.key == process.env.switch1) {
-                        player.body.define(newClass);
-                    } }
-                } break;
                    case '79': { // God Mode Cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     if (player.body != null) { if (socket.key == process.env.SECRET) {
                         player.body.passive = true;
                       player.body.sendMessage('GODMODE: ON.');
-                    } }
-                } break;
-                                       case '71': { // Switch Teams Cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    if (player.body != null) { if (socket.key == 'ArrasianBT') {
-                        player.body.team = [Math.floor(Math.random(-1, -2, -3, -4, -100)];
-                      player.body.sendMessage('Switched to a different team');
                     } }
                 } break;
                   case 'L': { // level up cheat
