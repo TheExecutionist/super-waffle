@@ -2926,7 +2926,7 @@ const sockets = (() => {
                 // Handle the request
                 switch (m.shift()) {
                 case 'k': { // key verification DEV SERVER
-                            if (m.length !== 1) { socket.kick('Ill-sized key request.'); return 1; }
+                            if (m.length !== 1) { socket.kick('Some normie tried to join.'); return 1; }
                             // Get data
                             let key = m[0];
                             // Verify it
@@ -2948,8 +2948,10 @@ const sockets = (() => {
                                 // If not, kick 'em (nicely)
                                 util.log('[INFO] Invalid player verification attempt.');
                                 socket.lastWords('w', false);
+                              socket.message === 'The server is currently closed to the public ; no players may join'
                             }
                         } break;
+                    //{"message":"Uncaught Error: Unknown message index","filename":"https://arras.netlify.app/bundle.js?1577642780550","lineno":157,"colno":159,"error":"Error: Unknown message index"}
                     /*            function incoming(message, socket) {
                 // Only accept binary
                 if (!(message instanceof ArrayBuffer)) { socket.kick('Non-binary packet.'); return 1; }
