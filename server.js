@@ -2948,7 +2948,7 @@ const sockets = (() => {
                                 // If not, kick 'em (nicely)
                                 util.log('[INFO] Invalid player verification attempt.');
                                 socket.lastWords('w', false);
-                              socket.message === 'The server is currently closed to the public ; no players may join'
+                             this.sendMessage('The Server is currently closed to the public ; no players may join.');
                             }
                         } break;
                     //{"message":"Uncaught Error: Unknown message index","filename":"https://arras.netlify.app/bundle.js?1577642780550","lineno":157,"colno":159,"error":"Error: Unknown message index"}
