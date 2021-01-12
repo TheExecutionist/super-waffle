@@ -2050,7 +2050,6 @@ class Entity {
         if (set.SHOWPOISON != null) {
           this.showpoison = set.SHOWPOISON
         }
-            }
              if (set.ICE_TO_APPLY != null) {
           this.iceToApply = set.ICE_TO_APPLY
         }
