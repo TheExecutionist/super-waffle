@@ -4922,7 +4922,7 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                       arrival = '';
                         for (let i=0; i<n-2; i++) arrival += names[i] + ', ';
                         arrival += names[n-2] + ' and ' + names[n-1] + ' have arrived.';
-                    }  else {
+                    }  /*else {
                         begin = 'A trio of Visitors are coming.';
                       arrival = '';
                         for (let i=0; i<n-3; i++) arrival += names[i] + ', ';
@@ -4937,7 +4937,7 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                       arrival = '';
                         for (let i=0; i<n-5; i++) arrival += names[i] + ', ';
                         arrival += names[n-5] + ' and ' + names[n-4] + ' and ' + names[n-3] + ' and ' + names[n-2] +  ' and ' + names[n-1] + ' have arrived.';
-                    } 
+                    } */
                 },
                 spawn: () => {
                     sockets.broadcast(begin);
