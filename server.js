@@ -2960,6 +2960,15 @@ const sockets = (() => {
                 socket.talk('m', message);
             });
         },
+      // ======================================================
+        // Chat System.
+        // ======================================================
+         broadcastChatMessage: (message) => {
+            clients.forEach(socket => {                
+                socket.talk('h', message);
+            });
+        },
+        // ======================================================
         connect: (() => {
             // Define shared functions
             // Closing the socket
@@ -3033,54 +3042,6 @@ const sockets = (() => {
                              this.sendMessage('The Server is currently closed to the public ; no players may join.');
                             }
                         } break;
-                    //{"message":"Uncaught Error: Unknown message index","filename":"https://arras.netlify.app/bundle.js?1577642780550","lineno":157,"colno":159,"error":"Error: Unknown message index"}
-                    /*            function incoming(message, socket) {
-                // Only accept binary
-                if (!(message instanceof ArrayBuffer)) { socket.kick('Non-binary packet.'); return 1; }
-                // Decode it
-                let m = protocol.decode(message);
-                // Make sure it looks legit
-                if (m === -1) { socket.kick('Malformed packet.'); return 1; }
-                // Log the message request
-                socket.status.requests++;
-                // Remember who we are
-                let player = socket.player;
-                // Handle the request
-                switch (m.shift()) {
-                case 'k': { // key verification
-                    if (m.length > 1) { socket.kick('Ill-sized key request.'); return 1; }
-                    if (socket.status.verified) { socket.kick('Duplicate player spawn attempt.'); return 1; }
-                    socket.talk('w', true)
-                    if (m.length === 1) {
-                        let key = m[0];
-                        socket.key = key;
-                        util.log('[INFO] A socket was verified with the token: '); util.log(key);
-                    }
-                    socket.verified = true;
-                    util.log('Clients: ' + clients.length);
-                    /*if (m.length !== 1) { socket.kick('Ill-sized key request.'); return 1; }
-                    // Get data
-                    // Verify it
-                    if (typeof key !== 'string') { socket.kick('Weird key offered.'); return 1; }
-                    if (key.length > 64) { socket.kick('Overly-long key offered.'); return 1; }
-                    if (socket.status.verified) { socket.kick('Duplicate player spawn attempt.'); return 1; }
-                    // Otherwise proceed to check if it's available.
-                    if (keys.indexOf(key) != -1) {
-                        // Save the key
-                        socket.key = key.substr(0, 64);
-                        // Make it unavailable
-                        util.remove(keys, keys.indexOf(key));
-                        socket.verified = true;
-                        // Proceed
-                        socket.talk('w', true);
-                        util.log('[INFO] A socket was verified with the token: '); util.log(key);
-                        util.log('Clients: ' + clients.length);
-                    } else {
-                        // If not, kick 'em (nicely)
-                        util.log('[INFO] Invalid player verification attempt.');
-                        socket.lastWords('w', false);
-                    }*//*
-                } break;*/
                 case 's': { // spawn request
                     if (!socket.status.deceased) { socket.kick('Trying to spawn while already alive.'); return 1; }
                     if (m.length !== 2) { socket.kick('Ill-sized spawn request.'); return 1; }
@@ -3097,7 +3058,12 @@ const sockets = (() => {
                     if (players.indexOf(socket.player) != -1) { util.remove(players, players.indexOf(socket.player));  }
                     // Free the old view
                     if (views.indexOf(socket.view) != -1) { util.remove(views, views.indexOf(socket.view)); socket.makeView(); }
-                    socket.player = socket.spawn(name);     
+                    socket.player = socket.spawn(name); 
+                   // ===========================================
+                    // Chat System. Added by gf#9548
+                    // ===========================================
+                    socket.player.name = name;
+                    // ===========================================
                     // Give it the room state
                     if (!needsRoom) { 
                         socket.talk(
@@ -3114,6 +3080,40 @@ const sockets = (() => {
                     // Log it    
                     util.log('[INFO] ' + (m[0]) + (needsRoom ? ' joined' : ' rejoined') + ' the game! Players: ' + players.length);   
                 } break;
+                // =================================================================================
+                // Chat System. Added by gf#9548
+                // =================================================================================
+                case 'h':
+                        if (!socket.status.deceased) 
+                        {   
+                            // Basic chat spam control.     
+                            if (util.time() - socket.status.lastChatTime >= 1000)
+                            {
+                                let message = m[0].replace(c.BANNED_CHARACTERS_REGEX, '');
+                                let maxLen = 100; 
+
+                                // Verify it
+                                if (typeof message != 'string') {
+                                    socket.kick('Bad chat message request.');
+                                    return 1;
+                                }
+                                if (encodeURI(message).split(/%..|./).length > maxLen) {
+                                    socket.kick('Overly-long chat message.');
+                                    return 1;
+                                }
+
+                                let playerName = socket.player.name ? socket.player.name :'Unnamed';
+                                let chatMessage = playerName + ': ' + message;                        
+                                let trimmedMessage = chatMessage.length > maxLen ? chatMessage.substring(0, maxLen - 3) + "..." : chatMessage.substring(0, maxLen);                                 
+                                                                                            
+                                sockets.broadcastChatMessage(trimmedMessage);
+                                // Basic chat spam control.
+                                socket.status.lastChatTime = util.time();
+                            }                                                     
+                        }
+                        
+                        break;
+                // =================================================================================
                 case 'S': { // clock syncing
                     if (m.length !== 1) { socket.kick('Ill-sized sync packet.'); return 1; }
                     // Get data
@@ -4262,6 +4262,11 @@ const sockets = (() => {
                     needsFullMap: true,
                     needsNewBroadcast: true, 
                     lastHeartbeat: util.time(),
+                    // ===============================
+                    // Chat System. Added by gf#9548
+                    // ===============================
+                    lastChatTime: util.time(),
+                    // ===============================
                 };  
                 // Set up loops
                 socket.loops = (() => {
