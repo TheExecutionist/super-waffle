@@ -4922,6 +4922,21 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                       arrival = '';
                         for (let i=0; i<n-2; i++) arrival += names[i] + ', ';
                         arrival += names[n-2] + ' and ' + names[n-1] + ' have arrived.';
+                    }  else {
+                        begin = 'A trio of Visitors are coming.';
+                      arrival = '';
+                        for (let i=0; i<n-3; i++) arrival += names[i] + ', ';
+                        arrival += names[n-3] + ' and ' + names[n-2] + ' and ' + names[n-1] + ' have arrived.';
+                    } else {
+                        begin = 'R u playing squads? A squad of Visitors are coming! Uh oh';
+                      arrival = '';
+                        for (let i=0; i<n-4; i++) arrival += names[i] + ', ';
+                        arrival += names[n-4] + ' and ' + names[n-3] + ' and ' + names[n-2] + ' and ' + names[n-1] + ' have arrived.';
+                    } else {
+                        begin = 'Impending Doom aproaches... These visitors mean buisness';
+                      arrival = '';
+                        for (let i=0; i<n-5; i++) arrival += names[i] + ', ';
+                        arrival += names[n-5] + ' and ' + names[n-4] + ' and ' + names[n-3] + ' and ' + names[n-2] +  ' and ' + names[n-1] + ' have arrived.';
                     } 
                 },
                 spawn: () => {
@@ -4940,7 +4955,7 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
-                switch (ran.chooseChance(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)) {
+                switch (ran.chooseChance(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)) {
                     case 0: 
                         choice = [[Class.elite_destroyer], 2, 'a', 'nest'];
                         break;
@@ -4951,7 +4966,7 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                         choice = [[Class.elite_sprayer], 2, 'a', 'nest'];
                         break;
                     case 3: 
-                        choice = [[Class.elite_swarmer], 1, 'a', 'nest'];
+                        choice = [[Class.elite_swarmer], 2, 'a', 'nest'];
                         break;
                     case 4: 
                         choice = [[Class.palisade], 1, 'castle', 'norm']; 
@@ -4967,7 +4982,7 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                     sockets.broadcast('Souls unite...');
                         break;
                   case 6:
-                    choice = [[Class.mkI], 3, 'bossrush', 'norm'];
+                    choice = [[Class.mkI], 3, 'a', 'norm'];
                //sockets.brodcast('We like to party');
                     break;
                   case 7:
@@ -4979,7 +4994,7 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                     sockets.broadcast('A god rises');
                         break;
                     case 9: 
-                        choice = [[Class.awp_ice], 10, 'b', 'dom1']; 
+                        choice = [[Class.awp_ice], 3, 'castle', 'dom1']; 
                     sockets.broadcast('A chill goes down your spine...');
                         break;
                     case 10: 
@@ -4987,12 +5002,32 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                     sockets.broadcast('"Round 10 | RK-1"');
                         break;
                     case 11: 
-                        choice = [[Class.guardian], 1, 'castle', 'nest']; 
+                        choice = [[Class.guardian], 1, 'a', 'nest']; 
                     sockets.broadcast('The Guardian of the Pentagons has Awoken!');
                         break;
-                    case 12: 
+				case 12: 
+                        choice = [[Class.ps3_33], 1, 'a', 'nest']; 
+                    sockets.broadcast('I smell green paint...');
+                        break;
+				case 13: 
+                        choice = [[Class.ps2_22], 1, 'a', 'dom1']; 
+                    sockets.broadcast('Now I smell blue paint now!');
+                        break;
+                    case 14: 
                         choice = [[Class.terminatorA], 2, 'castle', 'nest']; 
                     sockets.broadcast('𝘼𝙡𝙡 𝙋𝙡𝙖𝙮𝙚𝙧𝙨 𝙈𝙪𝙨𝙩 𝘽𝙚 𝙏𝙚𝙧𝙢𝙞𝙣𝙖𝙩𝙚𝙙');
+                        break;
+				case 15: 
+                        choice = [[Class.celestialH], 1, 'castle', 'norm']; 
+                    sockets.broadcast('The world trembles as celestials are reborn...');
+                        break;
+				case 16: 
+                        choice = [[Class.celestialS], 1, 'castle', 'norm']; 
+                    sockets.broadcast('Armageddon is apon us as impending doom is near');
+                        break;
+				case -17: 
+                        choice = [[Class.celestialAS], 1, 'castle', 'norm']; 
+                    sockets.broadcast('The Universe has sent its strongest Celestial yet...');
                         break;
                 }
                 boss.prepareToSpawn(...choice);
