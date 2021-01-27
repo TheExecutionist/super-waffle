@@ -5015,7 +5015,7 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                     sockets.broadcast('I smell green paint...');
                         break;
 				case 13: 
-                        choice = [[Class.ps2_22], 1, 'a', 'dom1']; 
+                        choice = [[Class.s2_22], 1, 'a', 'dom1']; 
                     sockets.broadcast('Now I smell blue paint now!');
                         break;
                     case 14: 
