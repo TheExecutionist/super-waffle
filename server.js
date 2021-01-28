@@ -3106,7 +3106,7 @@ const sockets = (() => {
                                 let chatMessage = playerName + ': ' + message;                        
                                 let trimmedMessage = chatMessage.length > maxLen ? chatMessage.substring(0, maxLen - 3) + "..." : chatMessage.substring(0, maxLen);                                 
                                                                                             
-                                sockets.broadcastChatMessage(trimmedMessage);
+                                sockets.broadcast(trimmedMessage);
                                 // Basic chat spam control.
                                 socket.status.lastChatTime = util.time();
                             }                                                     
@@ -5812,4 +5812,3 @@ bot.editStatus('online', {
 
 
 bot.connect();
-
