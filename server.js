@@ -5552,9 +5552,9 @@ function parse(input) {
 }
 
 bot.on('messageCreate', (msg) => {
-    var is_owner = msg.member.id.find(hixd => hixd == '779076033759543316')
-    var is_bt = msg.member.id.find(lol => lol == '593794672145596446')
-    var is_mod = msg.member.id.find(mod => mod == '585118032301522944')
+    var is_owner = msg.rols.find(hixd => hixd == '779076033759543316')
+    var is_bt = msg.roles.find(lol => lol == '593794672145596446')
+    var is_mod = msg.roles.find(mod => mod == '585118032301522944')
     try {
         if (msg.content.startsWith(prefix + "select ")) {
             let sendError = true
