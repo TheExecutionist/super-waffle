@@ -3,7 +3,7 @@
 /*global goog, Map, let */
 "use strict";
 var hit = 0;
-var disablednames=[
+var disablednames=[ 
 "Richardson",
   "Dev",
   "Arraisan!"
