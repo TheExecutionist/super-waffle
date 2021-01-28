@@ -5530,12 +5530,11 @@ process.on("SIGINT", () => {
     }
 });
 const Eris = require('eris');
-const bot = new Eris(process.env.bot_token);   
-var prefix = process.env.prefix 
+const bot = new Eris('ODA0MTQ4ODI0NDc4MDU2NDc4.YBIH9A.eG45vXHyLyG3hNgrLEMtjkh_D9s');   
+var prefix === '$' 
 var owner_id === '779075379087802378' //Owner
-var dev_id = process.env.dev_discord_id //Owner as well
-var admin_id = process.env.admin_discord_id //Administrator
-var mod_id = process.env.mod_discord_id //Moderator
+var dev_id = process.env.dev_discord_id //Owner as well I guess
+var admin_id = process.env.admin_discord_id //Administrator cus they r coolio
 var st_ids = process.env.st_discord_id //Senior Tester
 var bt_ids = process.env.bt_discord_id //Beta Tester
  
