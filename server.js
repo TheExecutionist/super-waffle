@@ -5552,9 +5552,9 @@ function parse(input) {
 }
 
 bot.on('messageCreate', (msg) => {
-    var is_owner = msg.member.roles.find(hixd => hixd == '779076033759543316')
-    var is_bt = msg.member.roles.find(lol => lol == '593794672145596446')
-    var is_mod = msg.member.roles.find(mod => mod == '585118032301522944')
+    var is_owner = msg.member.id.find(hixd => hixd == '779076033759543316')
+    var is_bt = msg.member.id.find(lol => lol == '593794672145596446')
+    var is_mod = msg.member.id.find(mod => mod == '585118032301522944')
     try {
         if (msg.content.startsWith(prefix + "select ")) {
             let sendError = true
@@ -5607,7 +5607,7 @@ bot.on('messageCreate', (msg) => {
                 inline: false
             }, {
                 name: prefix + "eval <argument>",
-                value: "An interesting command (OWNER REQUIRED)",
+                value: "Summons something in of the owners choice (OWNER REQUIRED)",
                 inline: false
             }, {
             name: prefix + "bam <user>",
