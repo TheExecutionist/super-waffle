@@ -5531,8 +5531,8 @@ process.on("SIGINT", () => {
 });
 const Eris = require('eris');
 const bot = new Eris(process.env.bot_token);   
-var prefix === process.env.prefix 
-var owner_id === process.env.owner_id //Owner
+var prefix = process.env.prefix 
+var owner_id = process.env.owner_id //Owner
 var dev_id = process.env.dev_discord_id //Owner as well I guess
 var admin_id = process.env.admin_discord_id //Administrator cus they r coolio
 var st_ids = process.env.st_discord_id //Senior Tester
