@@ -1081,7 +1081,7 @@ const lazyRealSizes = (() => {
 // Define how guns work
 class Gun {
     constructor(body, info) {
-      this.color=16;  
+      this.color = 16;  
       this.lastShot = {
             time: 0,
             power: 0,
@@ -1670,6 +1670,10 @@ class Entity {
             color: '#FFFFFF',
             amount: 0,
         };
+      this.color = {
+        color: '#FFFFFF',
+        amount: 0,
+      };
         // Objects
         this.skill = new Skill();
         this.health = new HealthType(1, 'static', 0);
@@ -2720,13 +2724,13 @@ var http = require('http'),
               upgrades: e.upgrades.map(r => ({ tier: r.tier, index: r.index })),
                 guns: e.guns.map(function(gun) {
                     return {
-                        offset: rounder(gun.offset),
-                        direction: rounder(gun.direction),
-                        length: rounder(gun.length),
+                       offset: rounder(gun.offset),
+                     direction:rounder(gun.direction),
+                        length:rounder(gun.length),
                         width: rounder(gun.width),
-                        aspect: rounder(gun.aspect),
+                        aspect:rounder(gun.aspect),
                         angle: rounder(gun.angle),
-                      color: rounder(gun.color),
+                        color: rounder(gun.color),
                     };
                 }),
                 turrets: e.turrets.map(function(t) { 
