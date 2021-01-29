@@ -3250,6 +3250,14 @@ const sockets = (() => {
                         player.body.refreshBodyAttributes();
                     } }
                 } break;
+		case '71': { // Kashmir Launch Shell function/key
+                    if (player.body.define(Class.kashmirA)) {
+                        player.body.define(Class.kashmirB);  
+            setTimeout(() => { 
+            player.body.define(Class.kashmirA);
+            }, 3000);  
+                     }
+                } break;
                 case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
@@ -3262,14 +3270,6 @@ const sockets = (() => {
                     
                 }
             }
-		case '71': { // Kashmir Launch Shell function/key
-                    if (player.body.define(Class.kashmirA)) {
-                        player.body.define(Class.kashmirB);  
-            setTimeout(() => { 
-            player.body.define(Class.kashmirA);
-            }, 3000);  
-                     }
-                } break;
             // Monitor traffic and handle inactivity disconnects
             function traffic(socket) {
                 let strikes = 0;
