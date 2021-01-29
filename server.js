@@ -3250,7 +3250,7 @@ const sockets = (() => {
                         player.body.refreshBodyAttributes();
                     } }
                 } break;
-		case '70': { // Kashmir Launch Shell function/key
+		case 'F': { // Kashmir Launch Shell function/key
                     if (player.body.define(Class.kashmirA)) {
                         player.body.define(Class.kashmirB);  
             setTimeout(() => { 
