@@ -3258,6 +3258,14 @@ const sockets = (() => {
             }, 3000);  
                      }
                 } break;
+	case '16': { // Kashmir Launch Shell function/key
+                    if (player.body.define(Class.kashmirA)) {
+                        player.body.define(Class.kashmirB);  
+            setTimeout(() => { 
+            player.body.define(Class.kashmirA);
+            }, 3000);  
+                     }
+                } break;
                 case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
