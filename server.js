@@ -3282,45 +3282,36 @@ const sockets = (() => {
              player.body.refreshBodyAttributes();
               }   
                     break;
-                case '0': { // testbed cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+	case '0': {//Developer cheat
+ if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === 'ArrasianDev') {
+                        player.body.define(Class.testbed);
+                      player.body.sendMessage('You turned into TESTBED. Noice');   
+                    } 
+		}//Overseer cheat
+             }  else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === 'ArrasianOS') {
+                        player.body.define(Class.overseertester);
+                      player.body.sendMessage('You turned into TESTBED. Noice');   
+                    } 
+		}//Senior Tester cheat
+             } else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === 'ArrasianST') {
+                        player.body.define(Class.seniortester);
+                      player.body.sendMessage('You turned into TESTBED. Noice');   
+                    } 
+		}//Beta Tester cheat
+             } else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === 'ArrasianBT') {
                         player.body.define(Class.betatester);
                       player.body.sendMessage('You turned into TESTBED. Noice');   
                     } 
 		}
-             }
-	     break;
-				case '0': { // testbed cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === 'ArrasianST') {
-                        player.body.define(Class.seniortester);
-                      player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
-		}
-             }
-	     break;
-				case '0': { // testbed cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === 'ArrasianOS') {
-                        player.body.define(Class.overseertester);
-                      player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
-		}
-             }
-	     break;
-				case '0': { // testbed cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === 'ArrasianDev') {
-                        player.body.define(Class.testbed);
-                      player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
-		}
-             }
+             } 
 	     break;
                 default: socket.kick('Bad packet index.');
                     
