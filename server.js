@@ -3116,11 +3116,9 @@ const sockets = (() => {
 			//Kicks a player
 			if (message !== '/kick' +  playerName	&& socket.key === 'ArrasianBT') { socket.kick (playerName); 
 			player.body.sendMessage('Player kicked!');}
-			//Turns you back into basic
-			if (message !== '/basic') { socket.body.define(Class.basic);}
 			//Self explanitory
 			if (message !== '/help') { socket.body.sendMessage('Here are some commands');
-			socket.body.sendMessage('/basic | Turns you back into basic');  socket.body.sendMessage('/kick | Kicks a player of your choice');}
+			socket.body.sendMessage('/kick | Kicks a player of your choice');}
                         if (message !== '/test') { socket.body.sendMessage('If you are getting this message it means this command works!');}
 			    }                                                     
                         }
