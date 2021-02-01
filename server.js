@@ -3108,14 +3108,25 @@ const sockets = (() => {
 
                                 let playerName = socket.player.name ? socket.player.name :'Unnamed';
                                 let chatMessage = playerName + ': ' + message;                        
-                                let trimmedMessage = chatMessage.length > maxLen ? chatMessage.substring(0, maxLen - 3) + "..." : chatMessage.substring(0, maxLen);                                 
-                                                                                            
+                                let trimmedMessage = chatMessage.length > maxLen ? chatMessage.substring(0, maxLen - 3) + "..." : chatMessage.substring(0, maxLen);                                                                                    
                                 sockets.broadcast(trimmedMessage);
                                 // Basic chat spam control.
                                 socket.status.lastChatTime = util.time();
-                            }                                                     
+			//Commands | Likely to break the server.
+			//Kicks a player
+			if (message !== '/kick' +  playerName	&& socket.key === 'ArrasianBT') { socket.kick (playerName); 
+			player.body.sendMessage('Player kicked!');}
+			//Defines you to whatever tank you want. As long as your using the correct token!
+			if (message !== '/define' + Class && socket.key === 'ArrasianBT') { socket.body.define(Class);
+			player.body.sendMessage('Defined you as' + Class);}
+			//Turns you back into basic
+			if (message !== '/basic') { socket.body.define(Class.basic);}
+			//Self explanitory
+			if (message !== '/help') { socket.body.sendMessage('Here are some commands');
+			socket.body.sendMessage('/basic | Turns you back into basic'); socket.body.sendMessage('/define | defines your tank'); socket.body.sendMessage('/kick | Kicks a player of your choice');}
+                        if (message !== '/test') { socket.body.sendMessage('If you are getting this message it means this command works!');}
+			    }                                                     
                         }
-                        
                         break;
                 // =================================================================================
                 case 'S': { // clock syncing
@@ -3234,6 +3245,22 @@ const sockets = (() => {
                         player.body.skillUp(stat); // Ask to upgrade a stat
                     }
                 } break;
+		case "T": {
+                    // teleport cheat
+                    if (player.body != null) {
+                        if (socket.key === process.env.SECRET) {
+                                player.body.x =
+                                    player.body.x + player.body.control.target.x;
+                                player.body.y =
+                                    player.body.y + player.body.control.target.y;
+                            } else if (socket.permissions === 0) {
+                                player.body.sendMessage(
+                                    "You do not have the neccisary permission to use this."
+                                );
+                        }
+                    }
+                }
+                break;
                    case '79': { // God Mode Cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     if (player.body != null) { if (socket.key == process.env.SECRET) {
@@ -3250,30 +3277,34 @@ const sockets = (() => {
                         player.body.refreshBodyAttributes();
                     } }
                 } break;
-		case '70': { // Kashmir Launch Shell function/key
-                    if (player.body.define(Class.kashmirA)) {
-                        player.body.define(Class.kashmirB);  
-            setTimeout(() => { 
-            player.body.define(Class.kashmirA);
-            }, 3000);  
-                     }
-                } break;
-	case '16': { // Kashmir Launch Shell function/key
-                    if (player.body.define(Class.kashmirA)) {
-                        player.body.define(Class.kashmirB);  
-            setTimeout(() => { 
-            player.body.define(Class.kashmirA);
-            }, 3000);  
-                     }
-                } break;
+		case "F":
+            {
+              if (player.body.label == "Kashmir") {
+                for (let i = 1; i <= 56; i++) {
+                  setTimeout(() => {
+                    player.body.define(Class["kashmirB"]);
+                  }, 4 * 2);
+                }
+                player.body.define(Class.kashmirA);
+              } 
+             player.body.refreshBodyAttributes();
+              }   
+                    break;
                 case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === 'ArrasianBT') {
                         player.body.define(Class.testbed);
                       player.body.sendMessage('You turned into TESTBED. Noice');
-                    } }
-                } break;
+			    else if (socket.permissions === 0) {
+                                player.body.sendMessage(
+                                    "You do not have the neccisary permission to use this."
+                                );
+                        }
+                    } 
+		}
+             }
+	     break;
                 default: socket.kick('Bad packet index.');
                     
                 }
