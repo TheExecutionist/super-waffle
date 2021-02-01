@@ -3295,12 +3295,7 @@ const sockets = (() => {
                     // cheatingbois
                     if (player.body != null) { if (socket.key === 'ArrasianBT') {
                         player.body.define(Class.testbed);
-                      player.body.sendMessage('You turned into TESTBED. Noice');
-			    else if (socket.permissions === 0) {
-                                player.body.sendMessage(
-                                    "You do not have the neccisary permission to use this."
-                                );
-                        }
+                      player.body.sendMessage('You turned into TESTBED. Noice');   
                     } 
 		}
              }
