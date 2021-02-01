@@ -3113,12 +3113,9 @@ const sockets = (() => {
                                 // Basic chat spam control.
                                 socket.status.lastChatTime = util.time();
 			//Commands | Likely to break the server.
-			//Kicks a player
-			if (message !== '/kick' + playerName && socket.key === 'ArrasianBT') { socket.kick (playerName); 
-			player.body.sendMessage('Player kicked!');}
 			//Self explanitory
 			if (message !== '/help') { socket.player.body.sendMessage('Here are some commands');
-			socket.player.body.sendMessage('/kick | Kicks a player of your choice');}
+			socket.player.body.sendMessage('/test | Message testing');}
                         if (message !== '/test') { socket.player.body.sendMessage('If you are getting this message it means this command works!');}
 			    }                                                     
                         }
