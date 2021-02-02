@@ -3112,11 +3112,6 @@ const sockets = (() => {
                                 sockets.broadcast(trimmedMessage);
                                 // Basic chat spam control.
                                 socket.status.lastChatTime = util.time();
-			//Commands | Likely to break the server.
-			//Self explanitory
-			if (message !== '/help') { socket.player.body.sendMessage('Here are some commands');
-			socket.player.body.sendMessage('/test | Message testing');}
-                        if (message !== '/test') { socket.player.body.sendMessage('If you are getting this message it means this command works!');}
 			    }                                                     
                         }
                         break;
