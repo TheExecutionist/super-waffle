@@ -3574,20 +3574,10 @@ const sockets = (() => {
                         body.define(Class.basic); // Start as a basic tank
                         body.name = name; // Define the name
                         // Dev hax
-                        if (socket.key ==='imaveryimportantperson') {
-                            body.name = "〖ᏉᎥᎮ〗" + body.name ;
-                          body.define(Class.testbed);  
-                          body.define({ CAN_BE_ON_LEADERBOARD: true, });
-                          //body.color = ([18]);
-                        }                        
-                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
-                        body.sendMessage = content => messenger(socket, content); // Make it speak
-                       // body.invuln = true; // Make it safe
-                    player.body = body;
 			 if (socket.key === 'ArrasianDev') {
                           body.define(Class.testbedpet);  
-                         body.spawn(Class.elite_testbedpet);
-                         body.spawn(Class.acpet);
+                         //body.spawn(Class.elite_testbedpet);
+                         //body.spawn(Class.acpet);
 				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
                         body.addController(new io_listenToPlayer(body, player)); // Make it listen
@@ -5622,9 +5612,9 @@ function parse(input) {
 }
 
 bot.on('messageCreate', (msg) => {
-    var is_owner = msg.roles.member.find(hixd => hixd == '779076033759543316')
-    var is_bt = msg.roles.member.find(lol => lol == '593794672145596446')
-    var is_mod = msg.roles.member.find(mod => mod == '585118032301522944')
+    var is_owner = msg.author.id != '779076033759543316'
+    var is_bt = msg.author.id != '593794672145596446'
+    var is_mod = msg.author.id != '585118032301522944'
     try {
         if (msg.content.startsWith(prefix + "select ")) {
             let sendError = true
