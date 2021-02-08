@@ -1347,6 +1347,8 @@ class Gun {
             this.body.children.push(o);
             this.children.push(o);  
         }        
+       if (info.PROPERTIES != null && info.PROPERTIES.COLOR != null) o.color = info.PROPERTIES.COLOR_OVERRIDE;
+       //if (info.PROPERTIES != null && info.PROPERTIES.SKIN != null) this.skin = info.PROPERTIES.SKIN;
         o.source = this.body;
         o.facing = o.velocity.direction;
         // Necromancers.
