@@ -1159,6 +1159,7 @@ class Gun {
 	    this.bulletColor = (info.PROPERTIES.COLOR_OVERRIDE == null) ?
 		    false: info.PROPERTIES.COLOR_OVERRIDE;
           }  	
+       if (info.PROPERTIES != null && info.PROPERTIES.COLOR_OVERRRIDE != null) this.bulletColor = info.PROPERTIES.COLOR_OVERRIDE;
        if (info.PROPERTIES != null && info.PROPERTIES.COLOR != null) this.color = info.PROPERTIES.COLOR;
        if (info.PROPERTIES != null && info.PROPERTIES.SKIN != null) this.skin = info.PROPERTIES.SKIN;
         let position = info.POSITION;
