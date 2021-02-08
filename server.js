@@ -1080,8 +1080,7 @@ const lazyRealSizes = (() => {
 
 // Define how guns work
 class Gun {
-    constructor(body, info) {
-      this.color = 16;  
+    constructor(body, info) {  
       this.lastShot = {
             time: 0,
             power: 0,
@@ -1097,7 +1096,9 @@ class Gun {
             main: false,
             alt: false,
             fire: false,
-        };        
+        };       
+	this.color = 16;
+        this.skin = 0;
         this.canShoot = false;
         if (info.PROPERTIES != null && info.PROPERTIES.TYPE != null) {
             this.canShoot = true;
@@ -1154,11 +1155,10 @@ class Gun {
             this.syncsSkills = (info.PROPERTIES.SYNCS_SKILLS == null) ?
                 false : info.PROPERTIES.SYNCS_SKILLS;
             this.negRecoil = (info.PROPERTIES.NEGATIVE_RECOIL == null) ?
-                false : info.PROPERTIES.NEGATIVE_RECOIL;
-        if(info.PROPERTIES.COLOR!=null&&info.PROPERTIES!=null){
-            this.color=info.PROPERTIES.COLOR
-        }                    
-          }  
+                false : info.PROPERTIES.NEGATIVE_RECOIL;                    
+          }  	
+       if (info.PROPERTIES != null && info.PROPERTIES.COLOR != null) this.color = info.PROPERTIES.COLOR;
+       if (info.PROPERTIES != null && info.PROPERTIES.SKIN != null) this.skin = info.PROPERTIES.SKIN;
         let position = info.POSITION;
         this.length = position[0] / 10;
         this.width = position[1] / 10;
