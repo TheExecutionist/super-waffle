@@ -1155,7 +1155,9 @@ class Gun {
             this.syncsSkills = (info.PROPERTIES.SYNCS_SKILLS == null) ?
                 false : info.PROPERTIES.SYNCS_SKILLS;
             this.negRecoil = (info.PROPERTIES.NEGATIVE_RECOIL == null) ?
-                false : info.PROPERTIES.NEGATIVE_RECOIL;                    
+                false : info.PROPERTIES.NEGATIVE_RECOIL; 
+	    this.bulletColor = (info.PROPERTIES.COLOR_OVERRIDE == null) ?
+		    false: info.PROPERTIES.COLOR_OVERRIDE;
           }  	
        if (info.PROPERTIES != null && info.PROPERTIES.COLOR != null) this.color = info.PROPERTIES.COLOR;
        if (info.PROPERTIES != null && info.PROPERTIES.SKIN != null) this.skin = info.PROPERTIES.SKIN;
@@ -1335,8 +1337,8 @@ class Gun {
             BODY: this.interpret(), 
             SKILL: this.getSkillRaw(),
             SIZE: this.body.size * this.width * this.settings.size / 2 ,
-            LABEL: this.master.label + ((this.label) ? ' ' + this.label : '') + ' ' + o.label,
-        });            
+            LABEL: this.master.label + ((this.label) ? ' ' + this.label : '') + ' ' + o.label,	
+	});            
         o.color = this.body.master.color;
         // Keep track of it and give it the function it needs to deutil.log itself upon death
         if (this.countsOwnKids) {
@@ -1347,9 +1349,7 @@ class Gun {
             this.body.children.push(o);
             this.children.push(o);  
         }        
-       if (info.PROPERTIES != null && info.PROPERTIES.COLOR != null) o.color = info.PROPERTIES.COLOR_OVERRIDE;
-       //if (info.PROPERTIES != null && info.PROPERTIES.SKIN != null) this.skin = info.PROPERTIES.SKIN;
-        o.source = this.body;
+	    o.source = this.body;
         o.facing = o.velocity.direction;
         // Necromancers.
         let oo = o;
