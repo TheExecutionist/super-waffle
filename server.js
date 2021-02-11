@@ -3578,10 +3578,16 @@ const sockets = (() => {
                         body.define(Class.basic); // Start as a basic tank
                         body.name = name; // Define the name
                         // Dev hax
-			 if (socket.key === 'ArrasianDev') {
+			if (socket.key === token.TA) {
                           body.define(Class.testbedpet);  
-                         //body.spawn(Class.elite_testbedpet);
-                         //body.spawn(Class.acpet);
+				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body; 
+			if (socket.key === 'ArrasianDev') {
+                          body.define(Class.testbedpet); 
 				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
                         body.addController(new io_listenToPlayer(body, player)); // Make it listen
