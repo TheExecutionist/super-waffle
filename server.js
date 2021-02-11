@@ -3290,7 +3290,7 @@ const sockets = (() => {
                     } 
 		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
-                    if (player.body != null) { if (socket.key === token.TA == "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#") {
+                    if (player.body != null) { if (socket.key === process.token.TA == "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#") {
                         player.body.define(Class.testbed);
                       player.body.sendMessage('You turned into TESTBED. Noice');   
                     } 
@@ -3584,7 +3584,7 @@ const sockets = (() => {
                         body.define(Class.basic); // Start as a basic tank
                         body.name = name; // Define the name
                         // Dev hax
-			if (socket.key === token.TA == "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#") {
+			if (socket.key === process.token.TA == "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#") {
                           body.define(Class.testbedpet);  
 				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
