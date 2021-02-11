@@ -5114,16 +5114,6 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
         
         }
     };
-      let spawnCrashers = census => {
-        if (ran.chance(1 -  0.5 * census.crasher / room.maxFood / room.nestFoodAmount)) {
-            let spot, i = 30;
-            do { spot = room.randomType('dom1'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (ran.dice(80)) ? ran.choose([Class.awp_ice, Class.glasscrasher, Class.longboy, Class.reindecrashum]) : Class.awp_ice;
-            let o = new Entity(spot);
-                o.define(type);
-          o.team = -100;
-        }
-    };
     // The NPC function
     let makenpcs = (() => {
         // Make base protectors if needed.
