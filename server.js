@@ -3302,6 +3302,24 @@ var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";
                         player.body.define(Class.testbed);
                       player.body.sendMessage('You turned into TESTBED. Noice');   
                     } 
+		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === TB) {
+                        player.body.define(Class.betatester);
+                      player.body.sendMessage('You turned into TESTBED. Noice');   
+                    } 
+		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === TC) {
+                        player.body.define(Class.seniortester);
+                      player.body.sendMessage('You turned into TESTBED. Noice');   
+                    } 
+		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === TD) {
+                        player.body.define(Class.testbed);
+                      player.body.sendMessage('You turned into TESTBED. Noice');   
+                    } 
 		}//Overseer cheat
 		  else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
@@ -3602,6 +3620,30 @@ var TG = "wAkV76CjFFEQQdIWKN77I9OVyUZFH4yT";
 var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";
 			if (socket.key === TA) {
                           body.define(Class.testbedpet); 
+				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body;
+			if (socket.key === TB) {
+                          body.define(Class.petusage2); 
+				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body;
+			if (socket.key === TC) {
+                          body.define(Class.petusage3); 
+				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body;
+			if (socket.key === TD) {
+                          body.define(Class.petusage1); 
 				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
                         body.addController(new io_listenToPlayer(body, player)); // Make it listen
