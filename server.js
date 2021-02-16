@@ -3201,6 +3201,14 @@ const sockets = (() => {
                         player.body.sendMessage(given.charAt(0).toUpperCase() + given.slice(1) + ((player.command[given]) ? ' enabled.' : ' disabled.'));
                     }
                 } break;
+var TA = "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#";
+var TB = "N91c&;%jS.9&`Aok]b&-f?c@]nR*dY";
+var TC = "=I&CUW#!huKB$@*l;yZgTx8QWV(hJodO}HS3s(e@]$x5$??Sin=cUTx<XmCv[B";
+var TD = "S<=IGO3g;)B0b8/r|{YFwG-SBPT4|a";
+var TE = "MtpxTfb0ctfWDXdI0MfWxFzxtBBUDXsi";
+var TF = "bT4OuQG0vsaIu1BEKTdOE64xGPS1s093";
+var TG = "wAkV76CjFFEQQdIWKN77I9OVyUZFH4yT";
+var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";
                 case 'U': { // upgrade request
                     if (m.length !== 1) { socket.kick('Ill-sized upgrade request.'); return 1; }
                     // Get data
@@ -3285,6 +3293,12 @@ const sockets = (() => {
  		if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === 'ArrasianDev') {
+                        player.body.define(Class.testbed);
+                      player.body.sendMessage('You turned into TESTBED. Noice');   
+                    } 
+		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === TA) {
                         player.body.define(Class.testbed);
                       player.body.sendMessage('You turned into TESTBED. Noice');   
                     } 
@@ -3578,6 +3592,14 @@ const sockets = (() => {
                         body.define(Class.basic); // Start as a basic tank
                         body.name = name; // Define the name
                         // Dev hax 
+			if (socket.key === TA) {
+                          body.define(Class.testbedpet); 
+				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body;
 			if (socket.key === 'ArrasianDev') {
                           body.define(Class.testbedpet); 
 				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
