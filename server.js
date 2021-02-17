@@ -21,7 +21,7 @@ const c = require('./config.json');
 const util = require('./lib/util');
 const ran = require('./lib/random');
 const hshg = require('./lib/hshg');
-const token = require('./token.js');
+//const token = require('./token.js');
 
 // Let's get a cheaper array removal thing
 Array.prototype.remove = index => {
