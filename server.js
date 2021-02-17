@@ -3047,8 +3047,9 @@ const sockets = (() => {
                                 // If not, kick 'em (nicely)
                                 util.log('[INFO] Invalid player verification attempt.');
                                 socket.lastWords('w', false);
-                             this.sendMessage('The Server is currently closed to the public;No players may join.');
-                            }
+				util.error(newValue); 
+                                throw new Error('The arena is currently closed to the public ; No Players may join');
+			    }
                         } break;
                 case 's': { // spawn request
                     if (!socket.status.deceased) { socket.kick('Trying to spawn while already alive.'); return 1; }
