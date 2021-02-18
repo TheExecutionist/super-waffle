@@ -3282,14 +3282,6 @@ const sockets = (() => {
              player.body.refreshBodyAttributes();
               }   
                     break;
-/*var TA = "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#";
-var TB = "N91c&;%jS.9&`Aok]b&-f?c@]nR*dY";
-var TC = "=I&CUW#!huKB$@*l;yZgTx8QWV(hJodO}HS3s(e@]$x5$??Sin=cUTx<XmCv[B";
-var TD = "S<=IGO3g;)B0b8/r|{YFwG-SBPT4|a";
-var TE = "MtpxTfb0ctfWDXdI0MfWxFzxtBBUDXsi";
-var TF = "bT4OuQG0vsaIu1BEKTdOE64xGPS1s093";
-var TG = "wAkV76CjFFEQQdIWKN77I9OVyUZFH4yT";
-var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";*/
 	case '0': {//Developer cheat
  		if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
@@ -3303,30 +3295,8 @@ var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";*/
                         player.body.define(Class.testbed);
                       player.body.sendMessage('You turned into TESTBED. Noice');   
                     } 
-		}//Overseer cheat
-		  else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === 'ArrasianOS') {
-                        player.body.define(Class.overseertester);
-                      player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
-		}//Senior Tester cheat
-             else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === 'ArrasianST') {
-                        player.body.define(Class.seniortester);
-                      player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
-		}//Beta Tester cheat
-             else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === 'ArrasianBT') {
-                        player.body.define(Class.betatester);
-                      player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
 		}
-             } 
-	     break;
+             }break;
                 default: socket.kick('Bad packet index.');    
                 }
             }
@@ -3609,14 +3579,6 @@ var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";*/
                         body.sendMessage = content => messenger(socket, content); // Make it speak
                         //body.invuln = true; // Make it safe
                     player.body = body;
-			 if (socket.key === 'ArrasianOS') {
-                          body.define(Class.overseertester);  
-                                            body.define({ CAN_BE_ON_LEADERBOARD: true, });
-                                          }                        
-                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
-                        body.sendMessage = content => messenger(socket, content); // Make it speak
-                        //body.invuln = true; // Make it safe
-                    player.body = body;
 			if (socket.key === token.OS) {
                           body.define(Class.overseertester);  
                                             body.define({ CAN_BE_ON_LEADERBOARD: true, });
@@ -3624,31 +3586,6 @@ var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";*/
                         body.addController(new io_listenToPlayer(body, player)); // Make it listen
                         body.sendMessage = content => messenger(socket, content); // Make it speak
                         //body.invuln = true; // Make it safe
-                    player.body = body;
-                  if (socket.key === 'ArrasianST') {
-                          body.define(Class.seniortester);  
-                                            body.define({ CAN_BE_ON_LEADERBOARD: true, });
-                                          }                        
-                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
-                        body.sendMessage = content => messenger(socket, content); // Make it speak
-                        //body.invuln = true; // Make it safe
-                    player.body = body;
-                          if (socket.key === 'ArrasianBT') {
-                          body.define(Class.betatester);  
-                                            body.define({ CAN_BE_ON_LEADERBOARD: true, });
-                                          }                        
-                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
-                        body.sendMessage = content => messenger(socket, content); // Make it speak
-                        //body.invuln = true; // Make it safe
-                    player.body = body;
-                                          if (socket.name = 'Arrasian!' ) {
-                            //body.name = "Loreium the Venomous";
-                          //body.define(Class.testbed);  
-                                            body.define({ CAN_BE_ON_LEADERBOARD: true, });
-                        }                        
-                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
-                        body.sendMessage = content => messenger(socket, content); // Make it speak
-                        body.invuln = true; // Make it safe
                     player.body = body;
                     // Decide how to color and team the body
                     switch (room.gameMode) {
