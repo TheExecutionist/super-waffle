@@ -33,6 +33,9 @@ Array.prototype.remove = index => {
         return r;
     }
 };
+var keys = [
+	
+];
 var devs = [
 "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#",
 "N91c&;%jS.9&`Aok]b&-f?c@]nR*dY",
