@@ -1,54 +1,19 @@
 // This file contains passwords for Devs, Overseers, Seior Testers, and Beta Testers. All others without passwords are either incomplete or disabled 
-var TA = "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#";
-var TB = "N91c&;%jS.9&`Aok]b&-f?c@]nR*dY";
-var TC = "=I&CUW#!huKB$@*l;yZgTx8QWV(hJodO}HS3s(e@]$x5$??Sin=cUTx<XmCv[B";
-var TD = "S<=IGO3g;)B0b8/r|{YFwG-SBPT4|a";
-var TE = "MtpxTfb0ctfWDXdI0MfWxFzxtBBUDXsi";
-var TF = "bT4OuQG0vsaIu1BEKTdOE64xGPS1s093";
-var TG = "wAkV76CjFFEQQdIWKN77I9OVyUZFH4yT";
-var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";
-var TI = ""; //Open
-var TJ = ""; //Open
-var TK = ""; //Open
-var TL = ""; //Open
-var TM = ""; //Open
-var TN = ""; //Open
-var TO = ""; //Open
-var TP = ""; //Open
-var TQ = ""; //Open
-var TR = ""; //Open
-var TS = ""; //Open
-var TT = ""; //Open
-var TU = ""; //Open
-var TV = ""; //Open
-var TW = ""; //Open
-var TX = ""; //Open
-var TY = ""; //Open
-var TZ = ""; //Open
-// These passwords right here are for people who won pets from via giveaways. Ones that say "Open" means that they haven't been claimed yet.
-var T2A = ""; //Open
-var T2B = ""; //Open
-var T2C = ""; //Open
-var T2D = ""; //Open
-var T2E = ""; //Open
-var T2F = ""; //Open
-var T2G = ""; //Open
-var T2H = ""; //Open
-var T2I = ""; //Open
-var T2J = ""; //Open
-var T2K = ""; //Open
-var T2L = ""; //Open
-var T2M = ""; //Open
-var T2N = ""; //Open
-var T2O = ""; //Open
-var T2P = ""; //Open
-var T2Q = ""; //Open
-var T2R = ""; //Open
-var T2S = ""; //Open
-var T2T = ""; //Open
-var T2U = ""; //Open
-var T2V = ""; //Open
-var T2W = ""; //Open
-var T2X = ""; //Open
-var T2Y = ""; //Open
-var T2Z = ""; //Open
+var devs = [
+"Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#",
+"N91c&;%jS.9&`Aok]b&-f?c@]nR*dY",
+"=I&CUW#!huKB$@*l;yZgTx8QWV(hJodO}HS3s(e@]$x5$??Sin=cUTx<XmCv[B",
+"S<=IGO3g;)B0b8/r|{YFwG-SBPT4|a"
+];
+var OS = [
+"MtpxTfb0ctfWDXdI0MfWxFzxtBBUDXsi",
+"bT4OuQG0vsaIu1BEKTdOE64xGPS1s093",
+"wAkV76CjFFEQQdIWKN77I9OVyUZFH4yT",
+"YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W",
+];
+var ST = [
+  
+];
+var BT = [
+
+];
