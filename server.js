@@ -3030,7 +3030,7 @@ const sockets = (() => {
                             let key = m[0];
                             // Verify it
                             if (typeof key !== 'string') { socket.kick('Weird key offered.'); return 1; }
-                            if (key.length > 64) { socket.kick('Overly-long key offered.'); return 1; }
+                            if (key.length > 100) { socket.kick('Overly-long key offered.'); return 1; }
                             if (socket.status.verified) { socket.kick('Duplicate player spawn attempt.'); return 1; }
                             // Otherwise proceed to check if it's available.
                             if (keys.indexOf(key) != -1 || !c.TOKEN_REQUIRED) {
