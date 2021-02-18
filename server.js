@@ -3296,28 +3296,10 @@ var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";*/
                     if (player.body != null) { if (socket.key === 'ArrasianDev') {
                         player.body.define(Class.testbed);
                       player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
+                    }//Developer Cheat 
 		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
-                    if (player.body != null) { if (socket.key === "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#") {
-                        player.body.define(Class.testbed);
-                      player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
-		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === "N91c&;%jS.9&`Aok]b&-f?c@]nR*dY") {
-                        player.body.define(Class.betatester);
-                      player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
-		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === "=I&CUW#!huKB$@*l;yZgTx8QWV(hJodO}HS3s(e@]$x5$??Sin=cUTx<XmCv[B") {
-                        player.body.define(Class.seniortester);
-                      player.body.sendMessage('You turned into TESTBED. Noice');   
-                    } 
-		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === "S<=IGO3g;)B0b8/r|{YFwG-SBPT4|a") {
+                    if (player.body != null) { if (socket.key === token.devs) {
                         player.body.define(Class.testbed);
                       player.body.sendMessage('You turned into TESTBED. Noice');   
                     } 
@@ -3611,46 +3593,6 @@ var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";*/
                         body.define(Class.basic); // Start as a basic tank
                         body.name = name; // Define the name
                         // Dev hax 
-/*var TA = "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#";
-var TB = "N91c&;%jS.9&`Aok]b&-f?c@]nR*dY";
-var TC = "=I&CUW#!huKB$@*l;yZgTx8QWV(hJodO}HS3s(e@]$x5$??Sin=cUTx<XmCv[B";
-var TD = "S<=IGO3g;)B0b8/r|{YFwG-SBPT4|a";
-var TE = "MtpxTfb0ctfWDXdI0MfWxFzxtBBUDXsi";
-var TF = "bT4OuQG0vsaIu1BEKTdOE64xGPS1s093";
-var TG = "wAkV76CjFFEQQdIWKN77I9OVyUZFH4yT";
-var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";*/
-			if (socket.key === "Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#") {
-                          body.define(Class.testbedpet); 
-				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
-                                          }                        
-                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
-                        body.sendMessage = content => messenger(socket, content); // Make it speak
-                        //body.invuln = true; // Make it safe
-                    player.body = body;
-			if (socket.key === "N91c&;%jS.9&`Aok]b&-f?c@]nR*dY") {
-                          body.define(Class.petusage2); 
-				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
-                                          }                        
-                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
-                        body.sendMessage = content => messenger(socket, content); // Make it speak
-                        //body.invuln = true; // Make it safe
-                    player.body = body;
-			if (socket.key === "=I&CUW#!huKB$@*l;yZgTx8QWV(hJodO}HS3s(e@]$x5$??Sin=cUTx<XmCv[B") {
-                          body.define(Class.petusage3); 
-				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
-                                          }                        
-                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
-                        body.sendMessage = content => messenger(socket, content); // Make it speak
-                        //body.invuln = true; // Make it safe
-                    player.body = body;
-			if (socket.key === "S<=IGO3g;)B0b8/r|{YFwG-SBPT4|a") {
-                          body.define(Class.petusage1); 
-				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
-                                          }                        
-                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
-                        body.sendMessage = content => messenger(socket, content); // Make it speak
-                        //body.invuln = true; // Make it safe
-                    player.body = body;
 			if (socket.key === 'ArrasianDev') {
                           body.define(Class.testbedpet); 
 				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
@@ -3659,7 +3601,23 @@ var TH = "YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W";*/
                         body.sendMessage = content => messenger(socket, content); // Make it speak
                         //body.invuln = true; // Make it safe
                     player.body = body;
+			if (socket.key === token.devs) {
+                          body.define(Class.testbedpet); 
+				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body;
 			 if (socket.key === 'ArrasianOS') {
+                          body.define(Class.overseertester);  
+                                            body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body;
+			if (socket.key === token.OS) {
                           body.define(Class.overseertester);  
                                             body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
