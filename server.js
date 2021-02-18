@@ -12,7 +12,7 @@ var disablednames=[
 // General requires
 require('google-closure-library');
 goog.require('goog.structs.PriorityQueue');
-goog.require('goog.structs.QuadTree');
+goog.require('goog.structs.QuadTree'); 
 
 // Import game settings.
 const c = require('./config.json');
