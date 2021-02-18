@@ -3320,13 +3320,13 @@ var BT = [
 	case '0': {//Developer cheat
  		if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
-                    if (player.body != null) { if (socket.key === 'ArrasianDev') {
-                        player.body.define(Class.testbed);
+                    if (player.body != null) { if (socket.key === 'TCISVERYCOOL') {
+                        player.body.define(Class.seniortester);
                       player.body.sendMessage('You turned into TESTBED. Noice');   
                     }//Developer Cheat 
 		}else if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
-                    if (player.body != null) { if (socket.key === token.devs) {
+                    if (player.body != null) { if (socket.key === "ALPHATANK" | "ArrasianDev" | "ArrasianLore" | "KingArras2") {
                         player.body.define(Class.testbed);
                       player.body.sendMessage('You turned into TESTBED. Noice');   
                     } 
@@ -3598,42 +3598,41 @@ var BT = [
                         body.define(Class.basic); // Start as a basic tank
                         body.name = name; // Define the name
                         // Dev hax 
-var devs = [
-"Ho/f?Efrw#O#opJw}8bS~Qzf3T]O:(LCLP.@N0d5|79c^:n6i86$:V*9#lRu|#",
-"N91c&;%jS.9&`Aok]b&-f?c@]nR*dY",
-"=I&CUW#!huKB$@*l;yZgTx8QWV(hJodO}HS3s(e@]$x5$??Sin=cUTx<XmCv[B",
-"S<=IGO3g;)B0b8/r|{YFwG-SBPT4|a"
-];
-var OS = [
-"MtpxTfb0ctfWDXdI0MfWxFzxtBBUDXsi",
-"bT4OuQG0vsaIu1BEKTdOE64xGPS1s093",
-"wAkV76CjFFEQQdIWKN77I9OVyUZFH4yT",
-"YBNq0HeFb3XuqJp7CYSkKgGkTXqHqu3W",
-];
-var ST = [
-  
-];
-var BT = [
 
-];
 			if (socket.key === 'ArrasianDev') {
-                          body.define(Class.testbedpet); 
+                          body.define(Class.petusage4); 
 				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
                         body.addController(new io_listenToPlayer(body, player)); // Make it listen
                         body.sendMessage = content => messenger(socket, content); // Make it speak
                         //body.invuln = true; // Make it safe
                     player.body = body;
-			if (socket.key === devs) {
-                          body.define(Class.testbedpet); 
+			if (socket.key === "TCISVERYCOOL") {
+                          body.define(Class.petusage3); 
 				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
                         body.addController(new io_listenToPlayer(body, player)); // Make it listen
                         body.sendMessage = content => messenger(socket, content); // Make it speak
                         //body.invuln = true; // Make it safe
                     player.body = body;
-			if (socket.key === OS) {
-                          body.define(Class.overseertester);  
+			if (socket.key === "ALPHATANK") {
+                          body.define(Class.petusage1);  
+                                            body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body;
+			if (socket.key === "ArrasianLore") {
+                          body.define(Class.petusage2);  
+                                            body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body;
+			if (socket.key === "KingArras2") {
+                          body.define(Class.petusage5);  
                                             body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
                         body.addController(new io_listenToPlayer(body, player)); // Make it listen
