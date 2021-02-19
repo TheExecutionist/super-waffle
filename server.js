@@ -109,6 +109,7 @@ room.findType('maze');
 room.findType('edge');
 room.findType('water');
 room.findType('waterrock')
+room.findType('AC')
 room.nestFoodAmount = 1.5 * Math.sqrt(room.nest.length) / room.xgrid / room.ygrid;
     room.random = () => {
         return {
@@ -5600,22 +5601,29 @@ process.exit()
 }
 // Graceful shutdown
 let shutdownWarning = false;
-if (process.platform === "win32") {
+if setTimeout(() => {
     var rl = require("readline").createInterface({
         input: process.stdin,
         output: process.stdout
     });  
     rl.on("SIGINT", () => {
         process.emit("SIGINT");
+	    let spot, i = 30;
+      do { spot = room.randomType('AC'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (ran.dice(1)) ? ran.choose([Class.reindecrashum2, Class.pentacloser, Class.ac, Class.ac3, Class.arena_sn87]) : Class.reindecrashum;
+            let o = new Entity(spot);
+            o.define(Class.rambot);    
+	    o.define(type);
+          o.team = -100;
     });
-}
+}, 600);
 process.on("SIGINT", () => {
     if (!shutdownWarning) {
         shutdownWarning = true;
-        sockets.broadcast("The server is shutting down.");
-        util.log('Server going down! Warning broadcasted.');
+        sockets.broadcast("Arena Closed; No players may join!");
+	util.log('Server going down! Warning broadcasted.');
         setTimeout(() => {
-            sockets.broadcast("Arena closed.");
+            sockets.broadcast("Closing...");
             util.log('Final warning broadcasted.'); 
             setTimeout(() => {
                 util.warn('Process ended.'); 
