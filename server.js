@@ -5616,7 +5616,7 @@ if (process.platform === "win32") {
 	    o.define(type);
           o.team = -100;
     });
-}, 600);
+}
 process.on("SIGINT", () => {
     if (!shutdownWarning) {
         shutdownWarning = true;
