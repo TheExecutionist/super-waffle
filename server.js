@@ -5609,7 +5609,7 @@ if (process.platform === "win32") {
     rl.on("SIGINT", () => {
         process.emit("SIGINT");
 	    let spot, i = 30;
-      do { spot = room.randomType('AC'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+      do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (ran.dice(1)) ? ran.choose([Class.reindecrashum2, Class.pentacloser, Class.ac, Class.ac3, Class.arena_sn87]) : Class.reindecrashum;
             let o = new Entity(spot);
             o.define(Class.rambot);    
