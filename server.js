@@ -1696,6 +1696,10 @@ class Entity {
         color: '#FFFFFF',
         amount: 0,
       };
+      this.namecolor = {
+        color: '#FFFFFF',
+        amount: 0,
+      };
         // Objects
         this.skill = new Skill();
         this.health = new HealthType(1, 'static', 0);
@@ -4079,7 +4083,8 @@ var BT = [
                                                 id,
                                                 score,
                                                 entry.index,
-                                            ];
+						entry.color,
+					    ];
                                         }
                                     } else {
                                         // Record it
