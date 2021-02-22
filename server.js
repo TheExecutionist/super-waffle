@@ -3623,8 +3623,9 @@ var BT = [
                         // Dev hax 
 
 			if (socket.key === 'ArrasianDev') {
-                          body.define(Class.petusage4);
+                        body.define(Class.petusage4);
 			body.sendMessage('Press ` to turn into TESTBED');
+			body.namecolor = "#FF0000";
 				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
                                           }                        
                         body.addController(new io_listenToPlayer(body, player)); // Make it listen
