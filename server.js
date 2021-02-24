@@ -5153,7 +5153,7 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
             } else if (!census.miniboss) timer++;
         };
     })();
-	 let spawnBosses = (() => {
+	 let spawnAC = (() => {
         let timer = 0;
         let tier = 0;
         let boss = (() => {
