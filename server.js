@@ -5222,7 +5222,7 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
                         sockets.broadcast('The server will restart in 30 minutes');
 				break;
 				case 3:
-			choice = [[Class.reindecrashum2, Class.arenacloser3], 10, 'castle', 'norm']
+			choice = [[Class.reindecrashum2], 10, 'castle', 'norm']
 		    		sockets.broadcast('Automatic Restart is now in function!')
                     process.emit("SIGINT");
 			break;
