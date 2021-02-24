@@ -5153,6 +5153,87 @@ prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
             } else if (!census.miniboss) timer++;
         };
     })();
+	 let spawnBosses = (() => {
+        let timer = 0;
+        let tier = 0;
+        let boss = (() => {
+            let i = 0,
+                names = [],
+                bois = [Class.egg],
+                n = 0,
+                begin = '',
+                arrival = '',
+                loc = 'norm';
+            let spawn = () => {
+                let spot, m = 0;
+                do {
+                    spot = room.randomType(loc); m++;
+                } while (dirtyCheck(spot, 500) && m<30);
+                let o = new Entity(spot);
+                    o.define(ran.choose(bois));
+                    o.team = -100;
+                    o.name = names[i++];
+            };
+            return {
+                prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
+                    n = number;
+                    bois = classArray;
+                    loc = typeOfLocation;
+                    names = ran.chooseBossName(nameClass, number);
+                    i = 0;
+                    if (n === 1) {
+                        begin = '';
+                        arrival = '';
+						//arrival = names[0] + ' has arrived.'; 
+                    } else {
+                        begin = '';
+                        arrival = '';
+                        //for (let i=0; i<n-2; i++) arrival += names[i] + ', ';
+                        //arrival += names[n-2] + ' and ' + names[n-1] + ' have arrived.';
+                    }
+                },
+                spawn: () => {
+                    sockets.broadcast(begin);
+                    for (let i=0; i<n; i++) {
+                        setTimeout(spawn, ran.randomRange(18000, 18000));
+                    }
+                    // Wrap things up.
+                    setTimeout(() => sockets.broadcast(arrival), 50);
+                    util.log('[SPAWN] ' + arrival);
+                },
+            };
+        })();
+        return census => {
+            if (timer > 50 && ran.dice(100 - timer)) {
+                util.log('[SPAWN] Preparing to spawn...');
+                timer = 0;
+                let choice = [];
+                switch (tier) {
+                    case 0: 
+                        choice = [[Class.egg], 1, 'a', 'norm'];
+                        sockets.broadcast('The server will restart in 1 hours and 30 minutes');
+				break;
+                    case 1: 
+                        choice = [[Class.egg], 1, 'a', 'nest'];
+                        sockets.broadcast('The server will restart in 1 hour');
+				break;
+                    case 2: 
+                        choice = [[Class.egg], 1, 'a', 'nest'];
+                        sockets.broadcast('The server will restart in 30 minutes');
+				break;
+				case 3:
+			choice = [[Class.reindecrashum2, Class.arenacloser3], 10, 'castle', 'norm']
+		    		sockets.broadcast('Automatic Restart is now in function!')
+                    process.emit("SIGINT");
+			break;
+                }
+                boss.prepareToSpawn(...choice);
+                setTimeout(boss.spawn, 50);
+                tier += 1
+                // Set the timeout for the spawn functions
+            } else if (!census.miniboss && census.tank) timer++;
+        };
+    })();
     let spawnCrasher = census => {
         if (ran.chance(1 -  0.5 * census.crasher / room.maxFood / room.nestFoodAmount)) {
             let spot, i = 30;
