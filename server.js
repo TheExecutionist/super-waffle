@@ -3074,7 +3074,7 @@ case 'k': { // key verification DEV SERVER
         return 1;
     }
     // Otherwise proceed to check if it's available.
-    if (keys.indexOf(key) != -1 || !c.TOKEN_REQUIRED) {
+    if (allowed.indexOf(key) != -1 || !c.TOKEN_REQUIRED) {
         // Save the key
         socket.key = key.substr(0, 64);
         // Make it unavailable
