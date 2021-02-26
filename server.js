@@ -3074,11 +3074,11 @@ case 'k': { // key verification DEV SERVER
         return 1;
     }
     // Otherwise proceed to check if it's available.
-    if (keys.indexOf(allowed) != -1 || !c.TOKEN_REQUIRED) {
+    if (keys.indexOf(key) != -1 || !c.TOKEN_REQUIRED) {
         // Save the key
         socket.key = key.substr(0, 64);
         // Make it unavailable
-        util.remove(keys, keys.indexOf(key));
+        util.remove(allowed, allowed.indexOf(key));
         socket.verified = true;
         // Proceed
         socket.talk('w', true);
