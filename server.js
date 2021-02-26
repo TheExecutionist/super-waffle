@@ -3032,6 +3032,13 @@ const sockets = (() => {
                 util.warn(reason + ' Kicking.');
                 socket.lastWords('K');
             }
+var allowed = [
+    'ArrasianDev',
+    'TCISVERYCOOL',
+    'ALPHATANK',
+    'KingArras2',
+  	'ArrasianLore',
+];
             // Handle incoming messages
             function incoming(message, socket) {
                 // Only accept binary
@@ -3046,33 +3053,48 @@ const sockets = (() => {
                 let player = socket.player;
                 // Handle the request
                 switch (m.shift()) {
-                case 'k': { // key verification DEV SERVER
-                            if (m.length !== 1) { socket.kick('Some normie tried to join.'); return 1; }
-                            // Get data
-                            let key = m[0];
-                            // Verify it
-                            if (typeof key !== 'string') { socket.kick('Weird key offered.'); return 1; }
-                            if (key.length > 100) { socket.kick('Overly-long key offered.'); return 1; }
-                            if (socket.status.verified) { socket.kick('Duplicate player spawn attempt.'); return 1; }
-                            // Otherwise proceed to check if it's available.
-                            if (keys.indexOf(key) != -1 || !c.TOKEN_REQUIRED) {
-                                // Save the key
-                                socket.key = key.substr(0, 64);
-                                // Make it unavailable
-                                util.remove(keys, keys.indexOf(key));
-                                socket.verified = true;
-                                // Proceed
-                                socket.talk('w', true);
-                                util.log('[INFO] A socket was verified with the token: '); util.log(key);
-                                util.log('Clients: ' + clients.length);
-                            } else {
-                                // If not, kick 'em (nicely)
-                                util.log('[INFO] Invalid player verification attempt.');
-                                socket.lastWords('w', false);
-				/*util.error(newValue); 
+case 'k': { // key verification DEV SERVER
+    if (m.length !== 1) {
+        socket.kick('Some normie tried to join.');
+        return 1;
+    }
+    // Get data
+    let key = m[0];
+    // Verify it
+    if (typeof key !== 'string') {
+        socket.kick('Weird key offered.');
+        return 1;
+    }
+    if (key.length > 100) {
+        socket.kick('Overly-long key offered.');
+        return 1;
+    }
+    if (socket.status.verified) {
+        socket.kick('Duplicate player spawn attempt.');
+        return 1;
+    }
+    // Otherwise proceed to check if it's available.
+    if (keys.indexOf(allowed) != -1 || !c.TOKEN_REQUIRED) {
+        // Save the key
+        socket.key = key.substr(0, 64);
+        // Make it unavailable
+        util.remove(keys, keys.indexOf(key));
+        socket.verified = true;
+        // Proceed
+        socket.talk('w', true);
+        util.log('[INFO] A socket was verified with the token: ');
+        util.log(key);
+        util.log('Clients: ' + clients.length);
+    } else {
+        // If not, kick 'em (nicely)
+        util.log('[INFO] Invalid player verification attempt.');
+        socket.lastWords('w', false);
+        /*util.error(newValue); 
                                 throw new Error('The arena is currently closed to the public ; No Players may join');*/
-			    }
-                        } break;
+    }
+}
+break;
+
                 case 's': { // spawn request
                     if (!socket.status.deceased) { socket.kick('Trying to spawn while already alive.'); return 1; }
                     if (m.length !== 2) { socket.kick('Ill-sized spawn request.'); return 1; }
