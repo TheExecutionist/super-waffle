@@ -3632,6 +3632,16 @@ var BT = [
                         body.sendMessage = content => messenger(socket, content); // Make it speak
                         //body.invuln = true; // Make it safe
                     player.body = body;
+			if (socket.key === 'beta') {
+                        body.define(Class.eventdev);
+			//body.sendMessage('Press ` to turn into TESTBED');
+			//body.namecolor = "#FF0000";
+				 body.define({ CAN_BE_ON_LEADERBOARD: true, });
+                                          }                        
+                        body.addController(new io_listenToPlayer(body, player)); // Make it listen
+                        body.sendMessage = content => messenger(socket, content); // Make it speak
+                        //body.invuln = true; // Make it safe
+                    player.body = body;
 			if (socket.key === "TCISVERYCOOL") {
                           body.define(Class.petusage3);
 			body.sendMessage('Press ` to turn into TESTBED');	
