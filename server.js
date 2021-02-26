@@ -5926,7 +5926,7 @@ bot.on('messageCreate', (msg) => {
                             }
                         }
                     }
-                }
+                } 
             } catch (err) {
                 bot.createMessage(msg.channel.id, String(err));
             }
