@@ -5797,7 +5797,11 @@ bot.on('messageCreate', (msg) => {
                 inline: false
             }, {
                 name: prefix + "eval <argument>",
-                value: "Summons something in of the owners choice (OWNER REQUIRED)",
+                value: "Executes code into the server (OWNER REQUIRED)",
+                inline: false
+            }, {
+                name: prefix + "close",
+                value: "Closes the server (OWNER REQUIRED)",
                 inline: false
             }, {
             name: prefix + "bam <user>",
@@ -5845,10 +5849,21 @@ bot.on('messageCreate', (msg) => {
                 bot.createMessage(msg.channel.id, unauth(3));
             }
         }
-        if (msg.content.startsWith(prefix + 'br')) {
+	        if (msg.content.startsWith(prefix + 'close')) {
+            if (is_owner) {
+                var command = msg.content.split(prefix + "close ").pop()
+                console.log('new eval: ', command)
+                var output = process.emit("SIGINT");
+                bot.createMessage(msg.channel.id, "Evaluated. Output: " + output);
+            } else {
+                console.log("Unauthorized user", msg.author.username, "tried to eval")
+                bot.createMessage(msg.channel.id, unauth(3));
+            }
+        }
+        if (msg.content.startsWith(prefix + 'broadcast')) {
             if (((is_bt) || (is_owner) || (is_mod))) {
-                sockets.broadcast(msg.content.split(prefix + "broadcast").pop() + " - " + msg.author.username)
-                bot.createMessage(msg.channel.id, 'Brodcast successful!');
+                sockets.broadcast(msg.content.split(prefix + "broadcast").pop() + msg.author.username + " - ")
+                bot.createMessage(msg.channel.id, 'Broadcast successful!');
             } else {
                 console.log("Unauthorized user", msg.author.username, "tried to broadcast")
                 bot.createMessage(msg.channel.id, unauth(2));
