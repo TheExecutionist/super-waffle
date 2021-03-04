@@ -5694,8 +5694,8 @@ let server = http.createServer((req, res) => {
     case '/gamemodeData':
     let clients = [], players = [];
       res.setHeader('Access-Control-Allow-Origin', '*')
-      res.writeHead(200)
-      res.end(c.MODE + players.length + "/10")
+      res.writeHead(200)//PLYRS means players
+      res.end("{" + "mode:" + c.MODE + " | " + "players:" + players.length + "/10" + "}")
     break
     default:
       res.writeHead(404)
