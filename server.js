@@ -5684,10 +5684,17 @@ let server = http.createServer((req, res) => {
       res.writeHead(200)
       res.end(`<!DOCTYPE html><h3>Arrasian.io | Gam leink here</h3><button onclick="location.href = 'http://arrasian-2.glitch.me/#Glitch-TDM">Open</button>`)
     break
+    //Mockups.json is a more modified version of defenitions.js
     case '/mockups.json':
       res.setHeader('Access-Control-Allow-Origin', '*')
       res.writeHead(200)
       res.end(mockupJsonData)
+    break
+    //This send what gamemode it is and how many players are on. Still very unstable
+    case '/gamemodeData':
+      res.setHeader('Access-Control-Allow-Origin', '*')
+      res.writeHead(200)
+      res.end(c.MODE + players.length + "/10")
     break
     default:
       res.writeHead(404)
