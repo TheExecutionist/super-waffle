@@ -5692,6 +5692,7 @@ let server = http.createServer((req, res) => {
     break
     //This send what gamemode it is and how many players are on. Still very unstable
     case '/gamemodeData':
+    let clients = [], players = [];
       res.setHeader('Access-Control-Allow-Origin', '*')
       res.writeHead(200)
       res.end(c.MODE + players.length + "/10")
