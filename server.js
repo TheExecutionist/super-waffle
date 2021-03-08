@@ -1949,7 +1949,7 @@ class Entity {
         }
         if (set.INVISIBLE != null) this.invisible = set.INVISIBLE;
 
-        if (set.SHOOT_ON_DEATH != null) {
+     if (set.SHOOT_ON_DEATH != null) {
            this.shootOnDeath = set.SHOOT_ON_DEATH
         }
         if (set.DANGER != null) { 
