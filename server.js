@@ -2300,6 +2300,138 @@ class Entity {
             this.maxSpeed = this.topSpeed;
             this.damp = 0.05;
             break;
+			case "healBullet":
+        this.isHealBullet = true;
+        this.maxSpeed = this.topSpeed;
+        break;
+            case "accelerate":
+   this.maxSpeed = this.topSpeed;
+   this.damp = -0.05;
+break;
+case "growboom":
+   this.SIZE += 5;
+   this.maxSpeed = this.topSpeed;
+break;
+            case "growboom2":
+   this.SIZE -= 2;
+   this.maxSpeed = this.topSpeed;
+break;
+            case "growaccel":
+   this.SIZE += 5;
+   this.maxSpeed = this.topSpeed;
+          this.damp = -0.05;
+break;
+
+            // I also have the grow! And glide! And flame! And more ... Cause all of them are from the waitftw
+        case "grow":
+           this.SIZE += 64;
+           this.maxSpeed = 0; 
+           this.damp = 100;
+        break;
+             case "growaura":
+           this.SIZE += 30;
+           this.maxSpeed = 0; 
+           this.damp = 100;
+        break;
+        case "growbetter":
+           this.SIZE += 64;
+           this.maxSpeed = this.topSpeed; 
+           this.damp = 100;
+        break;
+        case "colorthingynocolor":
+           if (this.SIZE > 25) this.SIZE -= 25;
+           else this.SIZE *= 0.5;
+           //if (this.SIZE <= 0.4) this.destroy();
+           //this.maxSpeed = this.topSpeed;
+        break;
+		case 'glide':
+            this.maxSpeed = this.topSpeed;
+            this.damp = 0.05;
+            break;
+         case 'xyv1':
+            this.color = 5;
+            if (gactive) {
+                let l = util.getDistance({ x: 0, y: 0, }, g);
+                if (l > this.size * 2) {
+                    this.maxSpeed = this.topSpeed;
+                    let desiredxspeed = this.topSpeed * g.x / l,
+                        desiredyspeed = this.topSpeed * g.y / l;
+                    engine = {                
+                        x: (desiredxspeed - this.velocity.x) * a,
+                        y: (desiredyspeed - this.velocity.y) * a,
+                    };
+                } else {
+                    this.maxSpeed = 0;
+                }   
+            } else {
+                this.maxSpeed = 0;
+            }
+            break;
+             case 'xyv2':
+           this.maxSpeed = 0;            
+            if (this.topSpeed) {
+                this.damp = a / this.topSpeed;
+            }
+            if (gactive) {
+                let len = Math.sqrt(g.x * g.x + g.y * g.y);
+                engine = {
+                    x: a * g.x / len,
+                    y: a * g.y / len,
+                };
+            }
+             this.color = 13;
+            break;
+             case 'xyv3':
+            this.color = 32;
+            if (gactive) {
+                let l = util.getDistance({ x: 0, y: 0, }, g);
+                if (l > this.size * 2) {
+                    this.maxSpeed = this.topSpeed;
+                    let desiredxspeed = this.topSpeed * g.x / l,
+                        desiredyspeed = this.topSpeed * g.y / l;
+                    engine = {                
+                        x: (desiredxspeed - this.velocity.x) * a,
+                        y: (desiredyspeed - this.velocity.y) * a,
+                    };
+                } else {
+                    this.maxSpeed = 0;
+                }   
+            } else {
+                this.maxSpeed = 0;
+            }
+            break;
+                  case 'gold':
+            this.color = 13;
+            this.maxSpeed = this.topSpeed;
+            break;
+             case 'orange':
+            this.color = 2;
+            this.maxSpeed = this.topSpeed;
+            break;
+               case 'red':
+            this.color = 12;
+            this.maxSpeed = this.topSpeed;
+            break;
+                case 'bow':
+            this.color = 2;
+           // this.maxSpeed = this.topSpeed;
+            if (gactive) {
+                let l = util.getDistance({ x: 0, y: 0, }, g);
+                if (l > this.size * 2) {
+                    this.maxSpeed = this.topSpeed;
+                    let desiredxspeed = this.topSpeed * g.x / l,
+                        desiredyspeed = this.topSpeed * g.y / l;
+                    engine = {                
+                        x: (desiredxspeed - this.velocity.x) * a,
+                        y: (desiredyspeed - this.velocity.y) * a,
+                    };
+                } else {
+                    this.maxSpeed = 0;
+                }   
+            } else {
+                this.maxSpeed = 0;
+            }
+            break;
         case 'motor':
             this.maxSpeed = 0;            
             if (this.topSpeed) {
